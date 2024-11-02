@@ -67,16 +67,17 @@ mod tests {
     use crate::ortb::BidRequest;
     use http_body_util::BodyExt;
     use hyper::{Method, Request, StatusCode};
+    use std::net::SocketAddr;
 
     #[tokio::test]
     async fn test_listener_request() {
-        let socket = "0.0.0.0:4006".parse().unwrap();
+        let socket = SocketAddr::from(([0, 0, 0, 0], 4006));
         let listener = super::start(socket);
 
         let resp = async {
             let br = BidRequest::default();
             reqwest::Client::new()
-                .post("http://0.0.0.0:4006")
+                .post("http://localhost:4006")
                 .json(&br)
                 .send()
                 .await
