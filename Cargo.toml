@@ -23,6 +23,7 @@ hyper = { version = "1", features = ["full"] }
 tokio = { version = "1", features = ["full"] }
 http-body-util = "0.1"
 hyper-util = { version = "0.1", features = ["full"] }
+clap = { version = "4.5.20", features = ["derive"] }
 
 
 # For building OpenRTB types from ./protos/ortb.proto
