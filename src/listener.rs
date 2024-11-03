@@ -71,7 +71,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_listener_request() {
-        let socket = SocketAddr::from(([0, 0, 0, 0], 4006));
+        let socket = SocketAddr::from(([127, 0, 0, 1], 4006));
         let listener = super::start(socket);
 
         let resp = async {
